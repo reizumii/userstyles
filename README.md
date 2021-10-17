@@ -1,8 +1,9 @@
 # Reizumi's UserStyles
 A repository of my userstyles that don't deserve their own dedicated page.
 
-## Userstyle List (as of 2021-10-03)
+## Userstyles List (as of 2021-10-17)
 - **Messenger Dynamic Sidebar**: Show and hide your chat sidebar seamlessly.
+- **Old Teddit Dark**: A dark theme for teddit with the look and feel of Old Reddit and RES night mode.
 
 ## Installation
 Before installing them, make sure you have [Stylus](https://add0n.com/stylus.html) installed.
