@@ -1,0 +1,460 @@
+/* ==UserStyle==
+@name           Old Teddit Dark
+@description    A dark theme for teddit with the look and feel of Old Reddit and RES night mode
+@author         reizumi
+@namespace      codeberg.org/reizumi/userstyles
+@homepageURL    https://codeberg.org/reizumi/userstyles
+@updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/old-teddit-dark.user.css
+@supportURL     https://codeberg.org/reizumi/userstyles/issues
+@preprocessor   stylus
+@version        1.0.0
+@license        CC-BY-SA-4.0
+
+@var select     navOption   "Navigation bar"        ["show:Always show", "hide:Always hide", "seamless:Seamless hide*"]
+@var text       seamTrans   "Seamless hide speed"   .2s
+@var text       seamDelay   "Seamless hide delay"   .1s
+@var text       fontSize    "Comments font size"    14px
+@var checkbox   custFont    "Use custom font"       0
+@var text       fontName    "Custom font name"      sans-serif
+@var checkbox   hideAvatar  "Hide profile avatars"  1
+@var checkbox   hideImages  "Hide preview images"   0
+@var checkbox   hideFooter  "Hide footer"           0
+==/UserStyle== */
+
+/*
+    Works best on teddit with dark theme
+    Make sure you've set your teddit theme in the preferences page or have set dark mode as your system theme.
+*/
+
+@-moz-document domain("custominstance.example"), regexp("https://teddit.*") {
+    if navOption == hide {
+        nav {
+            display: none;
+        }
+    } else if navOption == seamless {
+        nav {
+            height: 0;
+            overflow: hidden;
+            transition: height seamTrans;
+            transition-delay: seamDelay;
+        }
+        #topbar:hover nav {
+            height: 40px;
+        }
+    }
+    if custFont {
+        :root {
+            --fonts: fontName;
+        }
+    } else {
+        :root {
+            --fonts: Verdana, Arial, Helvetica, sans-serif;
+        }
+    }
+    if hideAvatar {
+        #user .info img {
+            display: none;
+        }
+    }
+    if hideImages {
+        #links .link .image {
+            display: none;
+        }
+    }
+    if hideFooter {
+        footer {
+            display: none;
+        }
+    }
+    :root {
+        --lightgray: #161616;
+        --darkbg: #262626;
+        --whitebg: #121212;
+        --headerbg: #696969;
+        --linebg: #5f99cf;
+        --subrbg: #8cb3d9;
+        --sorthover: #c7def7;
+        --headerfg: #000;
+        --activefg: #d25a32;
+        --dark-0: #222;
+        --dark-1: #333;
+        --dark-2: #444;
+        --fg-1: #aaa;
+        --fg-2: #bbb;
+        --fg-3: #ccc;
+        --fg-4: #fff;
+        --br-1: #666;
+        --view-btn: #777;
+        --quotefg: #646464;
+        --search-br: #808080;
+        --postfg: #828282;
+        --linkcolor: #6a98af;
+        --flairli: #4d4d4d;
+        --flairbg: #404040;
+        --flairfg: #c8c8c8;
+        --infobg: #264d73;
+        --infobr: #2966a3;
+        --codebg: #2a3340;
+        --codebr: #58697b;
+        --dotbr: gray;
+    }
+    * {
+        font-family: var(--fonts);
+        color: var(--fg-2);
+    }
+    body {
+        background-color: var(--darkbg);
+    }
+    #links.sr {
+        width: 80%;
+    }
+    #sidebar {
+        width: 20%;
+    }
+    #search {
+        width: calc(20% - 60px);
+    }
+    #search.sr p {
+        display: none;
+    }
+    #search form label {
+        font-size: 12px;
+    }
+    #search form label[for="q"] {
+        font-size: 0;
+    }
+    input,
+    select,
+    input[type="submit"],
+    .btn {
+        background: var(--dark-1) !important;
+        border-color: var(--dark-2) !important;
+        color: var(--fg-1) !important;
+    }
+    header a.main h1 {
+        color: var(--headerfg);
+    }
+    header a.subreddit h2 {
+        color: var(--subrbg);
+        font-size: 11px;
+        position: relative;
+        top: 8px;
+    }
+    #topbar {
+        background-color: var(--fg-3);
+    }
+    .top-links a {
+        background-color: var(--fg-3) !important;
+        color: var(--headerfg) !important;
+        font-size: 10px;
+    }
+    header {
+        background: var(--headerbg) !important;
+        border-bottom: 1px solid var(--linebg);
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    header .tabmenu {
+        margin-top: 6px;
+    }
+    header .bottom {
+        position: relative;
+        top: 1px;
+    }
+    header .tabmenu li a,
+    header .tabmenu li.active a {
+        background-color: var(--darkbg) !important;
+        color: var(--linebg) !important;
+        font-weight: bold;
+        margin-right: 6px;
+        padding: 2px 6px 0 6px;
+        font-size: 12px;
+    }
+    header .tabmenu li.active a {
+        border: 1px solid var(--linebg) !important;
+        border-bottom: 0 !important;
+        color: var(--activefg) !important;
+    }
+    a.sub-to-subreddit {
+        background-image: linear-gradient(#7bb850, #76a849);
+        border-radius: 2px;
+        padding: 3px 6px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    #sidebar .content .description,
+    #sidebar .md p {
+        font-size: 12px;
+    }
+    #sidebar .md a {
+        color: var(--subrbg);
+    }
+    #post header div a,
+    #post header div a p {
+        color: var(--subrfg);
+        text-decoration: none;
+    }
+    #post .title a {
+        font-size: 10px;
+    }
+    #post .submitted span {
+        margin-left: 0;
+    }
+    #post .usertext-body,
+    #links .link .entry .selftext {
+        background-color: transparent !important;
+        border-color: var(--br-1);
+    }
+    .comment details[open] > summary::before,
+    .comment details > summary::before {
+        color: var(--linkcolor);
+        font-size: 10px !important;
+    }
+    #post .comments-info {
+        margin: 10px 20px;
+    }
+    #post .comments-info p {
+        padding: 4px 0;
+        border-bottom: 1px dotted var(--dotbr);
+        margin-right: 20px;
+    }
+    #post .comments {
+        background-color: var(--darkbg);
+    }
+
+    #post .comments-sort details {
+        margin-bottom: 0;
+    }
+    .comment .meta,
+    .comment details summary,
+    #post .submitted {
+        font-size: 10px;
+    }
+    #post .comment .meta p.author a,
+    #post .comment .meta p.author span,
+    #links .link .entry .meta a {
+        color: var(--linkcolor) !important;
+    }
+    #post .comment .meta p.author a {
+        margin-left: 2px;
+    }
+    #post .comment .meta p.author a[title="submitter"] {
+        margin-left: 10px;
+    }
+    .flair,
+    #links .link .entry .title span.flair,
+    #post .info .title span.flair {
+        border: 1px solid var(--flairli);
+        background-color: var(--flairbg);
+        color: var(--flairfg);
+        border-radius: 2px;
+    }
+    #post .comment .load-more-comments {
+        font-size: 10px;
+    }
+    #post .infobar,
+    .infobar {
+        background-color: var(--infobg) !important;
+        border: 1px solid var(--infobr) !important;
+        font-size: fontSize !important;
+    }
+    #post .infobar a {
+        color: var(--subrbg) !important;
+    }
+    #post .comment .meta p.author a.submitter {
+        background-color: #0055df;
+        color: var(--fg-4) !important;
+    }
+    #post .comment .meta p.author a.green {
+        background-color: #228822;
+        color: var(--fg-4) !important;
+    }
+    #post .comment .meta p.author span.green {
+        color: #228822 !important;
+    }
+    #post .comments-sort details ul,
+    #links details ul {
+        position: absolute;
+        list-style-type: none;
+        background-color: var(--dark-1);
+        border: 1px solid var(--flairli);
+        left: 70px;
+        padding: 2px;
+        z-index: 1;
+    }
+    #post .comments-sort details li a,
+    #links details li a {
+        display: inline-block;
+        width: 100%;
+        color: var(--subrbg);
+    }
+    #post .comments-sort details li a:hover,
+    #links details li a:hover {
+        background-color: var(--sorthover);
+    }
+    #post .comments-sort details summary span strong {
+        text-decoration: underline;
+    }
+    #links .link .entry .meta .links a {
+        color: var(--fg-1) !important;
+    }
+    #links .link .entry details summary {
+        text-align: center;
+        width: 12px;
+        height: 12px;
+    }
+    #links details {
+        font-size: fontSize;
+    }
+    #links .link .entry details .line {
+        margin: 2px 0 !important;
+        width: 10px !important;
+    }
+    #links details {
+        font-size: 0.8em;
+    }
+    #links .link .entry .title a h2 {
+        color: var(--linkcolor);
+    }
+    #links .link .entry .title a h2.green {
+        font-weight: bold;
+    }
+    .ups {
+        font-weight: bold;
+        color: var(--fg-3) !important;
+    }
+    .comment {
+        background-color: var(--lightgray) !important;
+        margin: 0 15px;
+        padding-left: 25px;
+    }
+    .comment .comment {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+    .comment,
+    .comment .comment {
+        border: 1px solid var(--dark-1);
+        border-radius: 3px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .comment .body blockquote {
+        border-left-color: var(--quotefg) !important;
+        background-color: transparent !important;
+        color: var(--quotefg);
+        padding: 0 10px;
+        font-style: normal;
+    }
+    .comment details summary {
+        position: relative;
+        bottom: 1px;
+    }
+    .comment details summary::-webkit-details-marker,
+    .comment details summary::marker {
+        font-size: 10px !important;
+        color: var(--linkcolor) !important;
+    }
+    .comment details {
+        padding-top: 10px;
+    }
+    .comment .comment {
+        border-left-color: var(--dark-1) !important;
+    }
+    .comment .body a {
+        color: var(--subrbg) !important;
+    }
+    .md {
+        color: var(--fg-2);
+    }
+    .md textarea,
+    .md .-text,
+    .md p,
+    .md pre > code,
+    .md th,
+    .md td,
+    .md li {
+        font-size: fontSize;
+    }
+    .md code,
+    .md pre {
+        background-color: var(--codebg) !important;
+        border-color: var(--codebr) !important;
+    }
+    .md .md-spoiler-text:not(.revealed):hover {
+        color: var(--fg-1);
+    }
+    #search input[type="text"] {
+        background-color: var(--dark-1) !important;
+        border-color: var(--search-br) !important;
+        padding: 6px;
+    }
+    button[type="submit"] {
+        background: transparent;
+        margin-left: 16px;
+        font-size: 11px;
+        font-weight: bold;
+        border: 0;
+    }
+    .view-more-links a {
+        background-color: var(--view-btn) !important;
+        border-color: var(--dark-1);
+        font-size: 12px;
+    }
+    header h3.username {
+        margin-top: 5px;
+    }
+    #user #links {
+        margin: 5px 0;
+    }
+    #user #links details {
+        margin-left: 15px;
+        margin-bottom: 0;
+    }
+    #user .info {
+        text-align: left;
+    }
+    #user .info h1 {
+        margin-bottom: 5px;
+    }
+    #user .comment {
+        background: transparent !important;
+        border: 0;
+    }
+    #user .entries .commententry .meta .author a,
+    #user .entries .commententry .meta .subreddit a {
+        color: var(--linkcolor);
+    }
+    #user .entries .commententry .meta .author,
+    #user .entries .commententry .meta .subreddit {
+        margin-top: 0;
+    }
+    #user .entries .commententry .meta .author a,
+    #user .entries .commententry .meta .subreddit a {
+        margin-left: 5px;
+    }
+    #user .entries .commententry .meta a {
+        margin-left: 0;
+    }
+    #user .entries .commententry {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    #user .commententry details {
+        padding-top: 5px;
+    }
+    #user .commententry .body {
+        padding-top: 0;
+    }
+    footer::before {
+        content: "teddit - the privacy respecting reddit front-end: ";
+        font-size: 0.85em;
+    }
+    footer {
+        background: var(--lightbg);
+        text-align: center;
+    }
+    footer a {
+        color: var(--fg-2);
+    }
+}
