@@ -7,7 +7,7 @@
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/old-teddit-dark.user.css
 @supportURL     https://codeberg.org/reizumi/userstyles/issues
 @preprocessor   stylus
-@version        1.0.1
+@version        1.0.2
 @license        CC-BY-SA-4.0
 
 @var select     navOption   "Navigation bar"        ["show:Always show", "hide:Always hide", "seamless:Seamless hide*"]
@@ -236,6 +236,7 @@
         color: var(--linkcolor) !important;
     }
     #post .comment .meta p.author a {
+        font-weight: bold;
         margin-left: 2px;
     }
     #post .comment .meta p.author a[title="submitter"] {
