@@ -7,7 +7,7 @@
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/old-teddit-dark.user.css
 @supportURL     https://codeberg.org/reizumi/userstyles/issues
 @preprocessor   stylus
-@version        1.0.0
+@version        1.0.1
 @license        CC-BY-SA-4.0
 
 @var select     navOption   "Navigation bar"        ["show:Always show", "hide:Always hide", "seamless:Seamless hide*"]
@@ -273,7 +273,7 @@
         color: #228822 !important;
     }
     #post .comments-sort details ul,
-    #links details ul {
+    #links details ul:not(.md ul) {
         position: absolute;
         list-style-type: none;
         background-color: var(--dark-1);
