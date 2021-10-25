@@ -7,15 +7,19 @@
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/old-teddit-dark.user.css
 @supportURL     https://codeberg.org/reizumi/userstyles/issues
 @preprocessor   stylus
-@version        1.0.2
+@version        1.1.0
 @license        CC-BY-SA-4.0
 
-@var select     navOption   "Navigation bar"        ["show:Always show", "hide:Always hide", "seamless:Seamless hide*"]
+@var select     navOption   "Navigation bar"    {
+    "Always show"       : "show",
+    "Always hide"       : "hide",
+    "Seamless hide*"    : "seamless",
+}
 @var text       seamTrans   "Seamless hide speed"   .2s
 @var text       seamDelay   "Seamless hide delay"   .1s
 @var text       fontSize    "Comments font size"    14px
-@var checkbox   custFont    "Use custom font"       0
-@var text       fontName    "Custom font name"      sans-serif
+@var text       fontName    "Custom font name"      default
+@var text       tabsAdjust  "Tabs top adjustment"   6px
 @var checkbox   hideAvatar  "Hide profile avatars"  1
 @var checkbox   hideImages  "Hide preview images"   0
 @var checkbox   hideFooter  "Hide footer"           0
@@ -24,6 +28,9 @@
 /*
     Works best on teddit with dark theme
     Make sure you've set your teddit theme in the preferences page or have set dark mode as your system theme.
+    
+    Your system/custom font may ruin the position and alignment of subreddit tabs.
+    To fix this, change tabsAdjust's value to position them correctly.
 */
 
 @-moz-document domain("custominstance.example"), regexp("https://teddit.*") {
@@ -40,15 +47,6 @@
         }
         #topbar:hover nav {
             height: 40px;
-        }
-    }
-    if custFont {
-        :root {
-            --fonts: fontName;
-        }
-    } else {
-        :root {
-            --fonts: Verdana, Arial, Helvetica, sans-serif;
         }
     }
     if hideAvatar {
@@ -97,9 +95,15 @@
         --codebg: #2a3340;
         --codebr: #58697b;
         --dotbr: gray;
+        --user-author: #0055df;
+        --user-mod: #228822;
     }
     * {
-        font-family: var(--fonts);
+        if fontName != default {
+            font-family: fontName;
+        } else {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
         color: var(--fg-2);
     }
     body {
@@ -155,7 +159,7 @@
         margin-bottom: 10px;
     }
     header .tabmenu {
-        margin-top: 6px;
+        margin-top: tabsAdjust;
     }
     header .bottom {
         position: relative;
@@ -263,15 +267,15 @@
         color: var(--subrbg) !important;
     }
     #post .comment .meta p.author a.submitter {
-        background-color: #0055df;
+        background-color: var(--user-author);
         color: var(--fg-4) !important;
     }
     #post .comment .meta p.author a.green {
-        background-color: #228822;
+        background-color: var(--user-mod);
         color: var(--fg-4) !important;
     }
     #post .comment .meta p.author span.green {
-        color: #228822 !important;
+        color: var(--user-mod) !important;
     }
     #post .comments-sort details ul,
     #links details ul:not(.md ul) {
