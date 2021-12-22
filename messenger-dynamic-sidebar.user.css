@@ -16,56 +16,53 @@
 ==/UserStyle== */
 
 @-moz-document domain("messenger.com") {
-/* Header */
-.rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
-    opacity: 0;
-    height: 0;
-    transition: sidebarSpeed;
+    /* Header */
+    .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
+        opacity: 0;
+        height: 0;
+        transition: sidebarSpeed;
+    }
+    /* Search */
+    .rq0escxv.l9j0dhe7.du4w35lb.n851cfcs {
+        opacity: 0;
+        height: 0;
+        transition: sidebarSpeed;
+    }
+    /* Text Header */
+    ._-kb h1 {
+        width: 150px;
+    }
+    /* Unread Message Indicator */
+    .is6700om[data-visualcompletion="ignore"] {
+        position: relative;
+        right: 102px;
+        transition-delay: sidebarDelay;
+    }
+    /* Sidebar (not focused) */
+    .o36gj0jk {
+        width: 90px;
+        min-width: 90px;
+        transition: width sidebarSpeed sidebarEase;
+        transition-delay: sidebarDelay;
+    }
+    /* Sidebar (focused) */
+    .o36gj0jk:hover {
+        width: sidebarWidth;
+        transition-delay: 0s;
+    }
+    /* Header (focused) */
+    .o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
+        opacity: 1;
+        height: auto;
+    }
+    /* Search (focused) */
+    .o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.n851cfcs {
+        opacity: 1;
+        height: auto;
+    }
+    /* Unread Message Indicator (focused) */
+    .o36gj0jk:hover .is6700om[data-visualcompletion="ignore"] {
+        right: 0;
+        transition-delay: 0s;
+    }
 }
-/* Search */
-.rq0escxv.l9j0dhe7.du4w35lb.n851cfcs {
-    opacity: 0;
-    height: 0;
-    margin-bottom: 0;
-    transition: sidebarSpeed;
-}
-/* Text Header */
-._-kb h1 {
-    width: 150px;
-}
-/* Unread Message Indicator */
-.is6700om[data-visualcompletion="ignore"] {
-    position: relative;
-    right: 102px;
-    transition-delay: sidebarDelay;
-}
-/* Sidebar (not focused) */
-.o36gj0jk {
-    width: 90px;
-    min-width: 90px;
-    transition: width sidebarSpeed sidebarEase;
-    transition-delay: sidebarDelay;
-}
-/* Sidebar (focused) */
-.o36gj0jk:hover {
-    width: sidebarWidth;
-    transition-delay: 0s;
-}
-/* Header (focused) */
-.o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
-    opacity: 1;
-    height: auto;
-}
-/* Search (focused) */
-.o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.n851cfcs {
-    opacity: 1;
-    height: auto;
-    margin-bottom: 12px;
-}
-/* Unread Message Indicator (focused) */
-.o36gj0jk:hover .is6700om[data-visualcompletion="ignore"] {
-    right: 0;
-    transition-delay: 0s;
-}
-}
-
