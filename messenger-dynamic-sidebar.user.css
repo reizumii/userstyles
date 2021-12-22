@@ -25,14 +25,14 @@
     .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
         opacity: 0;
         height: 0;
-        margin: 10px 0;
+        margin: 10px 16px;
         transition: sidebarSpeed;
     }
     /* Search */
     .rq0escxv.l9j0dhe7.du4w35lb.jbae33se.hv4rvrfc.dati1w0a.pybr56ya {
         opacity: 0;
         height: 0;
-        padding: 0;
+        padding: 0 16px;
         transition: sidebarSpeed;
     }
     /* Text Header */
