@@ -20,12 +20,14 @@
     .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
         opacity: 0;
         height: 0;
+        margin: 10px 0;
         transition: sidebarSpeed;
     }
     /* Search */
     .rq0escxv.l9j0dhe7.du4w35lb.jbae33se.hv4rvrfc.dati1w0a.pybr56ya {
         opacity: 0;
         height: 0;
+        padding: 0;
         transition: sidebarSpeed;
     }
     /* Text Header */
@@ -54,11 +56,13 @@
     .o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.j83agx80.pfnyh3mw.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.jei6r52m.wkznzc2l.n851cfcs.dhix69tm.ahb00how {
         opacity: 1;
         height: auto;
+        margin: 20px 16px 12px 16px;
     }
     /* Search (focused) */
     .o36gj0jk:hover .rq0escxv.l9j0dhe7.du4w35lb.jbae33se.hv4rvrfc.dati1w0a.pybr56ya {
         opacity: 1;
         height: auto;
+        padding: 12px 16px 24px 16px;
     }
     /* Unread Message Indicator (focused) */
     .o36gj0jk:hover .is6700om[data-visualcompletion="ignore"] {
