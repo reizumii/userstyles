@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.1.0
+@version        1.1.1
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
