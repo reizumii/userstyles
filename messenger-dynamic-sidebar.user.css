@@ -6,12 +6,17 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.0.0
+@version        1.1.0
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
 @var text       sidebarDelay    "Sidebar leave delay"           .1s
-@var select     sidebarEase     "Sidebar easing"                ["ease*", "ease-in", "ease-out", "ease-in-out"]
+@var select     sidebarEase     "Sidebar easing" {
+    "Ease*"         : "ease",
+    "Ease-in"       : "ease-in",
+    "Ease-out"      : "ease-out",
+    "Ease-in-out"   : "ease-in-out"
+}
 @var text       sidebarWidth    "Sidebar width (focused)"       360px
 ==/UserStyle== */
 
