@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.1.4
+@version        1.1.5
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -53,7 +53,7 @@
     }
     /* Scrollbar */
     .mm98tyaj .alzwoclg.cqf1kptm.cgu29s5g.i15ihif8.sl4bvocy.lq84ybu9.efm7ts3d.om3e55n1.mfclru0v {
-        overflow: visible;
+        overflow-y: hidden;
     }
     /* Hide contents (workaround) */
     .i85zmo3j.alzwoclg.rtxb060y.p4zypb3t {
@@ -96,6 +96,6 @@
     }
     /* Scrollbar (focused) */
     .mm98tyaj:hover .alzwoclg.cqf1kptm.cgu29s5g.i15ihif8.sl4bvocy.lq84ybu9.efm7ts3d.om3e55n1.mfclru0v {
-        overflow: scroll;
+        overflow-y: scroll;
     }
 }
