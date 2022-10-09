@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.2.0
+@version        1.2.1
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -24,20 +24,20 @@
 
 @-moz-document domain("messenger.com") {
     if hideActionBar {
-        .bdao358l.om3e55n1.g4tp4svg.alzwoclg.cqf1kptm.jez8cy9q.gvxzyvdx.aeinzg81.qp72b3h3.oxkhqvkx.nch0832m.srn514ro.rl78xhln {
+        .x9f619.x1n2onr6.x1ja2u2z.x78zum5.xdt5ytf.x2lah0s.x193iq5w.xeuugli.xycxndf.x4uap5.xkhd6sd.xexx8yu.x18d9i69 {
             max-width: 0;
             overflow: hidden;
             border-right-color: var(--web-wash);
             transition: max-width sidebarSpeed;
             transition-delay: actionBarDelay;
         }
-        .bdao358l.om3e55n1.g4tp4svg.alzwoclg.cqf1kptm.jez8cy9q.gvxzyvdx.aeinzg81.qp72b3h3.oxkhqvkx.nch0832m.srn514ro.rl78xhln:hover {
+        .x9f619.x1n2onr6.x1ja2u2z.x78zum5.xdt5ytf.x2lah0s.x193iq5w.xeuugli.xycxndf.x4uap5.xkhd6sd.xexx8yu.x18d9i69:hover {
             max-width: 211px;
             border-right-color: var(--media-inner-border);
         }
     }
     /* Header */
-    .mm98tyaj .bdao358l.om3e55n1.g4tp4svg.alzwoclg.jez8cy9q.sl27f92c.i85zmo3j.sr926ui1.jl2a5g8c.anf3k8p9.rj0o91l8.qjfq86k5.p9ctufpz.lth9pzmp {
+    .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69.xzd29fr {
         opacity: 0;
         height: 0;
         margin: 0 16px;
@@ -45,72 +45,78 @@
         transition: sidebarSpeed;
     }
     /* Search */
-    .mm98tyaj .bdao358l.om3e55n1.g4tp4svg.r227ecj6.gt60zsk1.rj2hsocd.f9xcifuu {
+    .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x1pi30zi.x1swvt13.xsag5q8.x1yrsyyn {
         opacity: 0;
         height: 0;
         overflow: hidden;
         transition: sidebarSpeed;
     }
     /* Text Header */
-    .mm98tyaj .jxuftiz4.jwegzro5.hl4rid49.icdlwmnq {
-        width: 150px;
+    .x1cvmir6 .x1heor9g.x1qlqyl8.x1pd3egz.x1a2a7pz {
+        min-width: 150px;
     }
     /* Unread Message Indicator */
-    .mm98tyaj .nmlomj2f[data-visualcompletion="ignore"] {
+    .x1cvmir6 .xww2gxu[data-visualcompletion="ignore"] {
         position: relative;
         right: 83px;
         transition-delay: sidebarDelay;
     }
     /* Notification bell */
-    .mm98tyaj .sr926ui1.alzwoclg.i85zmo3j svg,
-    .mm98tyaj .sr926ui1.alzwoclg.i85zmo3j .i1ozlmoo {
+    .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg,
+    .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 .x1fsd2vl {
         display: none;
     }
-    /* Scrollbar */
-    .mm98tyaj .alzwoclg.cqf1kptm.cgu29s5g.i15ihif8.sl4bvocy.lq84ybu9.efm7ts3d.om3e55n1.mfclru0v {
-        overflow-y: hidden;
-    }
-    /* Hide contents (workaround) */
-    .i85zmo3j.alzwoclg.rtxb060y.p4zypb3t {
+    /* Hide contents */
+    .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x1qughib.x6s0dn4.x1a02dak.x1q0g3np.xdl72j9 {
         overflow: hidden;
     }
     /* Sidebar (not focused) */
-    .mm98tyaj {
+    .x1cvmir6 {
         width: 80px;
         min-width: 80px;
         transition: width sidebarSpeed sidebarEase;
         transition-delay: sidebarDelay;
     }
-    /* Sidebar (focused) */
-    .b0ur3jhr:hover .mm98tyaj {
-        width: sidebarWidth;
-        transition-delay: 0s;
-    }
-    /* Header (focused) */
-    .b0ur3jhr:hover .mm98tyaj .bdao358l.om3e55n1.g4tp4svg.alzwoclg.jez8cy9q.sl27f92c.i85zmo3j.sr926ui1.jl2a5g8c.anf3k8p9.rj0o91l8.qjfq86k5.p9ctufpz.lth9pzmp {
-        opacity: 1;
-        height: auto;
-        overflow: visible;
-        margin: 20px 16px 12px 16px;
-    }
-    /* Search (focused) */
-    .b0ur3jhr:hover .mm98tyaj .bdao358l.om3e55n1.g4tp4svg.r227ecj6.gt60zsk1.rj2hsocd.f9xcifuu {
-        opacity: 1;
-        height: auto;
-        overflow: visible;
-    }
-    /* Unread Message Indicator (focused) */
-    .b0ur3jhr:hover .mm98tyaj .nmlomj2f[data-visualcompletion="ignore"] {
-        right: 0;
-        transition-delay: 0s;
-    }
-    /* Notification bell (focused) */
-    .b0ur3jhr:hover .mm98tyaj .sr926ui1.alzwoclg.i85zmo3j svg,
-    .b0ur3jhr:hover .mm98tyaj .sr926ui1.alzwoclg.i85zmo3j .i1ozlmoo {
-        display: block;
-    }
-    /* Scrollbar (focused) */
-    .b0ur3jhr:hover .mm98tyaj .alzwoclg.cqf1kptm.cgu29s5g.i15ihif8.sl4bvocy.lq84ybu9.efm7ts3d.om3e55n1.mfclru0v {
-        overflow-y: scroll;
+    @media only screen and (min-width: 900px) {
+        /* Sidebar (focused) */
+        .x1vjfegm:hover .x1cvmir6 {
+            width: sidebarWidth;
+            transition-delay: 0s;
+        }
+        /* Header (focused) */
+        .x1vjfegm:hover .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69.xzd29fr {
+            opacity: 1;
+            height: auto;
+            overflow: visible;
+            margin: 20px 16px 12px 16px;
+        }
+        /* Search (focused) */
+        .x1vjfegm:hover .x9f619.x1n2onr6.x1ja2u2z.x1pi30zi.x1swvt13.xsag5q8.x1yrsyyn {
+            opacity: 1;
+            height: auto;
+            overflow: visible;
+        }
+        /* Unread Message Indicator (focused) */
+        .x1vjfegm:hover .x1cvmir6 .xww2gxu[data-visualcompletion="ignore"] {
+            right: 0;
+            transition-delay: 0s;
+        }
+        /* Notification bell (focused) */
+        .x1vjfegm:hover .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg,
+        .x1vjfegm:hover .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 .x1fsd2vl {
+            display: block;
+        }
+        /* Scrollbar */
+        .x1cvmir6 .x78zum5.xdt5ytf.x1iyjqo2.xs83m0k.x1xzczws.x6ikm8r.x1rife3k.x1n2onr6.xh8yej3 {
+            overflow-y: hidden;
+        }
+        /* Scrollbar (focused) */
+        .x1vjfegm:hover .x78zum5.xdt5ytf.x1iyjqo2.xs83m0k.x1xzczws.x6ikm8r.x1rife3k.x1n2onr6.xh8yej3 {
+            overflow-y: scroll;
+        }
+        /* Hide contents (focused) */
+        .x1vjfegm:hover .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x1qughib.x6s0dn4.x1a02dak.x1q0g3np.xdl72j9 {
+            overflow: visible;
+        }
     }
 }
