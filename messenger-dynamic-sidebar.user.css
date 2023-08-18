@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.2.1
+@version        1.3.0
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -15,9 +15,11 @@
     "Ease*"         : "ease",
     "Ease-in"       : "ease-in",
     "Ease-out"      : "ease-out",
-    "Ease-in-out"   : "ease-in-out"
+    "Ease-in-out"   : "ease-in-out",
+    "Cubic bezier"  : "cubic-bezier"
 }
 @var text       sidebarWidth    "Sidebar width (focused)"       360px
+@var text       sidebarBezier   "Sidebar cubic bezier"          cubic-bezier(0, 1.5, 1, 1)
 @var checkbox   hideActionBar   "Hide action bar"               1
 @var text       actionBarDelay  "Action bar trigger delay"      .15s
 ==/UserStyle== */
@@ -32,38 +34,39 @@
             transition-delay: actionBarDelay;
         }
         .x9f619.x1n2onr6.x1ja2u2z.x78zum5.xdt5ytf.x2lah0s.x193iq5w.xeuugli.xycxndf.x4uap5.xkhd6sd.xexx8yu.x18d9i69:hover {
-            max-width: 211px;
+            max-width: 248px;
             border-right-color: var(--media-inner-border);
         }
     }
+    sidebarEase = sidebarEase == "cubic-bezier" ? sidebarBezier : sidebarEase;
+    
     /* Header */
-    .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69.xzd29fr {
+    .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69 {
         opacity: 0;
         height: 0;
         margin: 0 16px;
         overflow: hidden;
-        transition: sidebarSpeed;
+        transition: sidebarSpeed sidebarEase;
     }
     /* Search */
-    .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x1pi30zi.x1swvt13.xsag5q8.x1yrsyyn {
+    .x9f619.x1n2onr6.x1ja2u2z.xsag5q8.x1yrsyyn {
         opacity: 0;
         height: 0;
         overflow: hidden;
-        transition: sidebarSpeed;
+        transition: sidebarSpeed sidebarEase;
     }
     /* Text Header */
     .x1cvmir6 .x1heor9g.x1qlqyl8.x1pd3egz.x1a2a7pz {
         min-width: 150px;
     }
     /* Unread Message Indicator */
-    .x1cvmir6 .xww2gxu[data-visualcompletion="ignore"] {
+    .x1cvmir6 .x1fsd2vl[data-visualcompletion="ignore"] {
         position: relative;
-        right: 83px;
+        right: 82px;
         transition-delay: sidebarDelay;
     }
     /* Notification bell */
-    .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg,
-    .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 .x1fsd2vl {
+    .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg {
         display: none;
     }
     /* Hide contents */
@@ -84,26 +87,25 @@
             transition-delay: 0s;
         }
         /* Header (focused) */
-        .x1vjfegm:hover .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69.xzd29fr {
+        .x1vjfegm:hover .x1cvmir6 .x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69 {
             opacity: 1;
             height: auto;
             overflow: visible;
             margin: 20px 16px 12px 16px;
         }
         /* Search (focused) */
-        .x1vjfegm:hover .x9f619.x1n2onr6.x1ja2u2z.x1pi30zi.x1swvt13.xsag5q8.x1yrsyyn {
+        .x1vjfegm:hover .x9f619.x1n2onr6.x1ja2u2z.xsag5q8.x1yrsyyn {
             opacity: 1;
             height: auto;
             overflow: visible;
         }
         /* Unread Message Indicator (focused) */
-        .x1vjfegm:hover .x1cvmir6 .xww2gxu[data-visualcompletion="ignore"] {
+        .x1vjfegm:hover .x1cvmir6 .x1fsd2vl[data-visualcompletion="ignore"] {
             right: 0;
             transition-delay: 0s;
         }
         /* Notification bell (focused) */
-        .x1vjfegm:hover .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg,
-        .x1vjfegm:hover .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 .x1fsd2vl {
+        .x1vjfegm:hover .x1cvmir6 .xozqiw3.x78zum5.x6s0dn4 svg {
             display: block;
         }
         /* Scrollbar */
