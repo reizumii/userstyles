@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.3.2
+@version        1.3.3
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -20,37 +20,45 @@
 }
 @var text       sidebarWidth    "Sidebar width (focused)"       360px
 @var text       sidebarBezier   "Sidebar cubic bezier"          cubic-bezier(0, 1.5, 1, 1)
-@var checkbox   hideActionBar   "Hide action bar"               1
-@var text       actionBarDelay  "Action bar trigger delay"      .15s
+@var checkbox   hideActionBar   "Hide inbox switcher"           1
+@var text       actionBarDelay  "Inbox switcher trigger delay"  .15s
 ==/UserStyle== */
 
 @-moz-document domain("messenger.com") {
     sidebarEase = sidebarEase == "cubic-bezier" ? sidebarBezier : sidebarEase;
 
-    actionBarClass = ".xm81vs4";
+    actionBarClass = '.xm81vs4[role="navigation"]';
     headerClass = ".x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69";
     messagePreviewClass = ".x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x1qughib.x6s0dn4.x1a02dak.x1q0g3np.xdl72j9";
     notificationBellClass = ".xozqiw3.x78zum5.x6s0dn4";
     scrollbarClass = ".x78zum5.xdt5ytf.x1iyjqo2.xs83m0k.x1xzczws.x6ikm8r.x1rife3k.x1n2onr6.xh8yej3";
     searchClass = ".x9f619.x1n2onr6.x1ja2u2z.xsag5q8.x1yrsyyn";
-    sidebarClass = ".x1cvmir6";
+    sidebarClass = '.x1cvmir6[role="navigation"]';
     textHeaderClass = ".x1heor9g.x1qlqyl8.x1pd3egz.x1a2a7pz";
     unreadMessageIndicatorClass = '.x1fsd2vl[data-visualcompletion="ignore"]';
 
     if hideActionBar {
         {actionBarClass} {
-            max-width: 0;
+            width: 0;
             overflow: hidden;
-            border-right-color: var(--web-wash);
-            transition: max-width sidebarSpeed;
+            border-right-color: var(--surface-background);
+            transition-property: width, border-right-color;
+            transition-duration: sidebarSpeed;
             transition-delay: actionBarDelay;
-        }
-        {actionBarClass}:hover {
-            max-width: 248px;
-            border-right-color: var(--media-inner-border);
+            
+            &:hover {
+                border-right-color: var(--media-inner-border);
+                
+                &:has([aria-expanded="false"]) {
+                    width: 60px;
+                }
+                &:has([aria-expanded="true"]) {
+                    width: 248px;
+                }
+            }
         }
     }
-
+    
     /* Header */
     {headerClass} {
         opacity: 0;
