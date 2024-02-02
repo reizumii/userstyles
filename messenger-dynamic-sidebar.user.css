@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.3.3
+@version        1.3.4
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -21,6 +21,17 @@
 @var text       sidebarWidth    "Sidebar width (focused)"       360px
 @var text       sidebarBezier   "Sidebar cubic bezier"          cubic-bezier(0, 1.5, 1, 1)
 @var checkbox   hideActionBar   "Hide inbox switcher"           1
+@var select     hideHeader      "Hide chat header" {
+    "With sidebar" : "withSidebar",
+    "Always"       : "always",
+    "Never"        : "never"
+}
+@var select     hideSearch      "Hide search bar" {
+    "With sidebar" : "withSidebar",
+    "Unless hover" : "hover",
+    "Always"       : "always",
+    "Never"        : "never"
+}
 @var text       actionBarDelay  "Inbox switcher trigger delay"  .15s
 ==/UserStyle== */
 
@@ -60,20 +71,33 @@
     }
     
     /* Header */
-    {headerClass} {
-        opacity: 0;
-        height: 0;
-        margin: 0 16px;
-        overflow: hidden;
-        transition: sidebarSpeed sidebarEase;
+    if hideHeader != "never" {
+        {headerClass} {
+            opacity: 0;
+            height: 0;
+            margin: 0 16px;
+            overflow: hidden;
+            transition: sidebarSpeed sidebarEase;
+        }
     }
+    
     /* Search */
-    {searchClass} {
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
-        transition: sidebarSpeed sidebarEase;
+    if hideSearch != "never" {
+        {searchClass} {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: sidebarSpeed sidebarEase;
+        }
+    } else {
+        {headerClass} {
+            margin-bottom: 0px !important;
+        }
+        {searchClass} {
+            margin-top: 6px;
+        }
     }
+    
     /* Text Header */
     {sidebarClass} {textHeaderClass} {
         min-width: 150px;
@@ -107,20 +131,31 @@
             transition-delay: 0s;
         }
         /* Header (focused) */
-        {sidebarClass}:hover {headerClass},
-        {actionBarClass}:hover + {sidebarClass} {headerClass} {
-            opacity: 1;
-            height: auto;
-            overflow: visible;
-            margin: 20px 16px 12px 16px;
+        focusedHeader = sidebarClass + ":hover " + headerClass + ", " + actionBarClass + ":hover + " + sidebarClass + " " + headerClass;
+        
+        if hideHeader == "withSidebar" {
+            {focusedHeader} {
+                opacity: 1;
+                height: auto;
+                overflow: visible;
+                margin: 20px 16px 12px 16px;
+            }
         }
+        
         /* Search (focused) */
-        {sidebarClass}:hover {searchClass},
-        {actionBarClass}:hover + {sidebarClass} {searchClass} {
-            opacity: 1;
-            height: auto;
-            overflow: visible;
+        focusedSearch = sidebarClass + ":hover " + searchClass;
+        if hideSearch == "hover" {focusedSearch += ":hover ";};
+        focusedSearch += ", " + actionBarClass + ":hover + " + sidebarClass + " " + searchClass;
+        
+        if hideSearch == "withSidebar" || hideSearch == "hover" {
+            {focusedSearch} {
+                opacity: 1;
+                height: auto;
+                overflow: visible;
+                if hideHeader == "always" {margin-top: 6px;}
+            }
         }
+        
         /* Unread Message Indicator (focused) */
         {sidebarClass}:hover {unreadMessageIndicatorClass},
         {actionBarClass}:hover + {sidebarClass} {unreadMessageIndicatorClass} {
