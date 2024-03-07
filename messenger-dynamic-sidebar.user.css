@@ -6,7 +6,7 @@
 @homepageURL    https://codeberg.org/reizumi/userstyles
 @updateURL      https://codeberg.org/reizumi/userstyles/raw/branch/master/messenger-dynamic-sidebar.user.css
 @preprocessor   stylus
-@version        1.4.0
+@version        1.4.1
 @license        CC-BY-SA-4.0
 
 @var text       sidebarSpeed    "Sidebar speed"                 .2s
@@ -39,11 +39,11 @@
 
     /* MDS classes */
     actionBarClass = '.xm81vs4[role="navigation"]';
-    headerClass = ".x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.x1sy10c2.xktsk01.xod5an3.x1d52u69";
+    headerClass = ".x9f619.x1n2onr6.x1ja2u2z.x78zum5.x2lah0s.x1qughib.x6s0dn4.xozqiw3.x1q0g3np.xykv574.xbmpl8g.x4cne27.xifccgj.x889kno.x1pi30zi.x1a8lsjc.x1swvt13";
     messagePreviewClass = ".x9f619.x1n2onr6.x1ja2u2z.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x1qughib.x6s0dn4.x1a02dak.x1q0g3np.xdl72j9";
     notificationBellClass = ".xozqiw3.x78zum5.x6s0dn4";
     scrollbarClass = ".x78zum5.xdt5ytf.x1iyjqo2.xs83m0k.x1xzczws.x6ikm8r.x1rife3k.x1n2onr6.xh8yej3";
-    searchClass = ".x9f619.x1n2onr6.x1ja2u2z.xsag5q8.x1yrsyyn";
+    searchClass = ".x9f619.x1n2onr6.x1ja2u2z.xsag5q8.xexx8yu";
     sidebarClass = '.x1cvmir6[role="navigation"]';
     textHeaderClass = ".x1heor9g.x1qlqyl8.x1pd3egz.x1a2a7pz";
     unreadMessageIndicatorClass = '.x1fsd2vl[data-visualcompletion="ignore"]';
@@ -78,7 +78,7 @@
     {headerClass} {
         opacity: 0;
         height: 0;
-        margin: 0 16px;
+        padding: 0 16px;
         overflow: hidden;
         transition: sidebarSpeed sidebarEase;
     }
@@ -86,7 +86,7 @@
     {searchClass} {
         opacity: 0;
         height: 0;
-        padding: 12px 0 0 0;
+        padding: 6px 0 0 0;
         overflow: hidden;
         transition: sidebarSpeed sidebarEase;
     }
@@ -135,7 +135,7 @@
             opacity: 1;
             height: auto;
             overflow: visible;
-            margin: 20px 16px 12px 16px;
+            padding: 10px 16px;
         }
     }
     /* Search (focused) */
